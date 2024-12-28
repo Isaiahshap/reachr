@@ -7,6 +7,11 @@ import ctaAnimation from '../assets/cta.json'
 export default function CTA() {
   const { showDemoNotice } = useDemoNotice()
 
+  const handleButtonClick = (e: React.MouseEvent) => {
+    e.preventDefault()
+    showDemoNotice()
+  }
+
   return (
     <section className="relative py-24 overflow-hidden">
       {/* Background */}
@@ -61,15 +66,15 @@ export default function CTA() {
               className="flex flex-col sm:flex-row gap-4"
             >
               <button
-                onClick={showDemoNotice}
-                className="inline-flex items-center justify-center rounded-lg bg-white px-8 py-4 text-base font-semibold text-primary-600 shadow-sm hover:bg-primary-50 transition-all duration-200 group"
+                onClick={handleButtonClick}
+                className="inline-flex items-center justify-center rounded-lg bg-white px-8 py-4 text-base font-semibold text-primary-600 shadow-sm hover:bg-primary-50 active:bg-primary-100 transition-all duration-200 group"
               >
-                Start Free Trial
+                <span>Start Free Trial</span>
                 <IconArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </button>
               <button
-                onClick={showDemoNotice}
-                className="inline-flex items-center justify-center rounded-lg border border-white/20 px-8 py-4 text-base font-semibold text-white hover:bg-white/10 transition-all duration-200"
+                onClick={handleButtonClick}
+                className="inline-flex items-center justify-center rounded-lg border border-white/20 px-8 py-4 text-base font-semibold text-white hover:bg-white/10 active:bg-white/20 transition-all duration-200"
               >
                 Schedule Demo
               </button>
@@ -81,26 +86,24 @@ export default function CTA() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
-              className="mt-12 flex items-center gap-8 text-primary-100"
+              className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4 text-primary-100"
             >
-              <div className="flex items-center gap-2">
-                <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-                <span className="text-sm">14-day free trial</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-                <span className="text-sm">No credit card required</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-                <span className="text-sm">Cancel anytime</span>
-              </div>
+              {[
+                '14-day free trial',
+                'No credit card required',
+                'Cancel anytime'
+              ].map((text) => (
+                <button
+                  key={text}
+                  onClick={handleButtonClick}
+                  className="flex items-center gap-2 hover:text-white transition-colors"
+                >
+                  <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-sm">{text}</span>
+                </button>
+              ))}
             </motion.div>
           </div>
 

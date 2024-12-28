@@ -1,7 +1,7 @@
 import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { useDemoNotice } from '../contexts/DemoNoticeContext'
 
@@ -12,37 +12,6 @@ const primaryNavigation = [
   { name: 'FAQ', href: '/faq' },
 ]
 
-const secondaryNavigation = [
-  { 
-    name: 'Documentation', 
-    href: '#',
-    icon: '📚',
-    badge: 'New',
-    badgeColor: 'bg-green-100 text-green-800'
-  },
-  { 
-    name: 'Help Center', 
-    href: '#',
-    icon: '💬',
-    status: 'Active',
-    statusColor: 'text-green-600'
-  },
-  { 
-    name: 'API Reference', 
-    href: '#',
-    icon: '⚡️',
-    badge: 'Beta',
-    badgeColor: 'bg-purple-100 text-purple-800'
-  },
-  { 
-    name: 'Community', 
-    href: '#',
-    icon: '👥',
-    status: '2.1k online',
-    statusColor: 'text-gray-600'
-  },
-]
-
 interface MobileMenuProps {
   isOpen: boolean
   setIsOpen: (value: boolean) => void
@@ -51,15 +20,53 @@ interface MobileMenuProps {
 export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
   const { showDemoNotice } = useDemoNotice()
 
+  const menuVariants = {
+    hidden: { 
+      opacity: 0,
+      y: 20,
+    },
+    visible: { 
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.3,
+        ease: [0.25, 0.1, 0.25, 1], // cubic-bezier easing
+        when: "beforeChildren",
+        staggerChildren: 0.1
+      }
+    },
+    exit: {
+      opacity: 0,
+      transition: {
+        duration: 0.2
+      }
+    }
+  }
+
+  const itemVariants = {
+    hidden: { 
+      opacity: 0,
+      x: -20,
+    },
+    visible: { 
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.2,
+        ease: "easeOut"
+      }
+    }
+  }
+
   return (
     <Transition.Root show={isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-50" onClose={setIsOpen}>
         <Transition.Child
           as={Fragment}
-          enter="ease-out duration-300"
+          enter="ease-out duration-200"
           enterFrom="opacity-0"
           enterTo="opacity-100"
-          leave="ease-in duration-200"
+          leave="ease-in duration-150"
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
@@ -93,100 +100,60 @@ export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
                       </button>
                     </div>
 
-                    <div className="flex-1 px-6 py-8">
-                      {/* Primary Navigation */}
-                      <nav className="space-y-2.5">
-                        {primaryNavigation.map((item, idx) => (
-                          <motion.div
-                            key={item.name}
-                            initial={{ opacity: 0, x: 20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ 
-                              delay: idx * 0.1,
-                              type: "spring",
-                              stiffness: 300,
-                              damping: 30
-                            }}
+                    <AnimatePresence mode="wait">
+                      {isOpen && (
+                        <motion.div 
+                          variants={menuVariants}
+                          initial="hidden"
+                          animate="visible"
+                          exit="exit"
+                          className="flex-1 px-6 py-8"
+                        >
+                          {/* Primary Navigation */}
+                          <nav className="space-y-1">
+                            {primaryNavigation.map((item) => (
+                              <motion.div
+                                key={item.name}
+                                variants={itemVariants}
+                              >
+                                <Link
+                                  to={item.href}
+                                  className="flex items-center px-4 py-3 rounded-lg text-base font-medium text-gray-900 hover:bg-gray-100/50 active:bg-gray-200/50 transition-all duration-200"
+                                  onClick={() => setIsOpen(false)}
+                                >
+                                  {item.name}
+                                </Link>
+                              </motion.div>
+                            ))}
+                          </nav>
+
+                          {/* Action Buttons */}
+                          <motion.div 
+                            variants={itemVariants}
+                            className="mt-8 space-y-3"
                           >
-                            <Link
-                              to={item.href}
-                              className="flex items-center px-4 py-3 rounded-lg text-base font-medium text-gray-900 hover:bg-gray-100/50 active:bg-gray-200/50 transition-all duration-200"
-                              onClick={() => setIsOpen(false)}
-                            >
-                              {item.name}
-                            </Link>
-                          </motion.div>
-                        ))}
-                      </nav>
-
-                      {/* Action Buttons */}
-                      <motion.div 
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.4 }}
-                        className="mt-8 space-y-3"
-                      >
-                        <button
-                          onClick={() => {
-                            showDemoNotice()
-                            setIsOpen(false)
-                          }}
-                          className="w-full inline-flex items-center justify-center rounded-lg bg-primary-600 px-6 py-3.5 text-base font-semibold text-white shadow-sm hover:bg-primary-700 active:bg-primary-800 transition-all duration-200"
-                        >
-                          Get Started
-                        </button>
-                        <button
-                          onClick={() => {
-                            showDemoNotice()
-                            setIsOpen(false)
-                          }}
-                          className="w-full inline-flex items-center justify-center rounded-lg border border-gray-200 bg-white px-6 py-3.5 text-base font-semibold text-gray-900 shadow-sm hover:bg-gray-50 active:bg-gray-100 transition-all duration-200"
-                        >
-                          Sign In
-                        </button>
-                      </motion.div>
-
-                      {/* Secondary Navigation */}
-                      <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.5 }}
-                        className="mt-12 pt-8 border-t border-gray-100"
-                      >
-                        <h3 className="px-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">
-                          Resources
-                        </h3>
-                        <nav className="mt-4 space-y-1">
-                          {secondaryNavigation.map((item, idx) => (
-                            <motion.a
-                              key={item.name}
-                              initial={{ opacity: 0, x: 20 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: 0.6 + (idx * 0.1) }}
-                              href={item.href}
-                              onClick={(e) => {
-                                e.preventDefault()
+                            <button
+                              onClick={() => {
                                 showDemoNotice()
+                                setIsOpen(false)
                               }}
-                              className="flex items-center px-4 py-3 rounded-lg text-sm text-gray-700 hover:bg-gray-100/50 active:bg-gray-200/50 transition-all duration-200"
+                              className="w-full inline-flex items-center justify-center rounded-lg bg-primary-600 px-6 py-3.5 text-base font-semibold text-white shadow-sm hover:bg-primary-700 active:bg-primary-800 transition-all duration-200"
                             >
-                              <span className="mr-3 text-lg">{item.icon}</span>
-                              <span className="flex-1">{item.name}</span>
-                              {item.badge && (
-                                <span className={`ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${item.badgeColor}`}>
-                                  {item.badge}
-                                </span>
-                              )}
-                              {item.status && (
-                                <span className={`ml-2 text-xs ${item.statusColor}`}>
-                                  {item.status}
-                                </span>
-                              )}
-                            </motion.a>
-                          ))}
-                        </nav>
-                      </motion.div>
-                    </div>
+                              Get Started
+                            </button>
+                            <button
+                              onClick={() => {
+                                showDemoNotice()
+                                setIsOpen(false)
+                              }}
+                              className="w-full inline-flex items-center justify-center rounded-lg border border-gray-200 bg-white px-6 py-3.5 text-base font-semibold text-gray-900 shadow-sm hover:bg-gray-50 active:bg-gray-100 transition-all duration-200"
+                            >
+                              Sign In
+                            </button>
+                          </motion.div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
                 </Dialog.Panel>
               </Transition.Child>
