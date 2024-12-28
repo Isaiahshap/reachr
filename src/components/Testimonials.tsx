@@ -1,6 +1,5 @@
 // src/components/Testimonials.tsx
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
 import { useDemoNotice } from '../contexts/DemoNoticeContext'
 
 const testimonials = [

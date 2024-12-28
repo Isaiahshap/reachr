@@ -3,8 +3,6 @@ import { motion } from 'framer-motion'
 import { Disclosure } from '@headlessui/react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import Lottie from 'lottie-react'
-import callAnimation from '../assets/call.json'
 import { Link } from 'react-router-dom'
 import { useDemoNotice } from '../contexts/DemoNoticeContext'
 

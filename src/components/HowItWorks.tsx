@@ -10,10 +10,6 @@ import { useDemoNotice } from '../contexts/DemoNoticeContext'
 export default function HowItWorks() {
   const { showDemoNotice } = useDemoNotice()
   const containerRef = useRef(null)
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  })
 
   const steps = [
     {

@@ -1,8 +1,6 @@
 import { useMemo } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { Disclosure } from '@headlessui/react'
 import Lottie from 'lottie-react'
-import { Link } from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import callAnimation from '../assets/call.json'
@@ -105,28 +103,6 @@ export default function About() {
     }
   ], [])
 
-  const faqs = useMemo(() => [
-    {
-      question: 'How does your AI compare to human SDRs?',
-      answer: 'Our AI agents can handle 2000+ calls per hour, operate 24/7, and maintain consistent quality across all conversations. They achieve a 47% higher conversion rate compared to human SDRs, with built-in compliance and instant handoff for qualified leads.',
-    },
-    {
-      question: 'What CRM systems do you integrate with?',
-      answer: 'We offer one-click integration with Salesforce, HubSpot, Pipedrive, and other major CRM platforms. Our two-way sync ensures your data stays current across all systems, with automated list cleaning and enrichment.',
-    },
-    {
-      question: 'How long does it take to get started?',
-      answer: 'Most customers are up and running within 24 hours. The setup process includes CRM integration, AI voice customization, and campaign configuration. Our team provides hands-on support throughout the onboarding process.',
-    },
-    {
-      question: 'What languages does your AI support?',
-      answer: 'Our AI currently supports 12 languages including English, Spanish, French, German, Italian, Portuguese, Japanese, and Mandarin. Each language model is trained on native speakers to ensure natural conversations.',
-    },
-    {
-      question: 'How do you ensure compliance?',
-      answer: 'We maintain GDPR, CCPA, and TCPA compliance across all regions. Our AI is programmed to respect do-not-call lists, time zones, and regional regulations. All calls are recorded and transcribed for quality assurance.',
-    }
-  ], [])
 
   const { showDemoNotice } = useDemoNotice()
 
