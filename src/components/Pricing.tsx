@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
 import { CheckIcon } from '@heroicons/react/24/solid'
 import { useState } from 'react'
 import { useDemoNotice } from '../contexts/DemoNoticeContext'
