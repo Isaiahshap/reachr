@@ -72,8 +72,8 @@ export default function PricingTable() {
                 to="/signup"
                 className={`inline-block w-full rounded px-4 py-2 font-semibold text-white ${
                   plan.highlight
-                    ? 'bg-gradient-to-r from-primary-600 to-primary-500'
-                    : 'bg-primary-500 hover:bg-primary-600'
+                    ? 'bg-gradient-to-r from-primary-700 to-primary-600'
+                    : 'bg-primary-600 hover:bg-primary-700'
                 }`}
               >
                 {plan.cta}

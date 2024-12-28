@@ -6,20 +6,20 @@ import heroAnimation from '../assets/hero.json'
 
 export default function Hero() {
   return (
-    <section className="relative h-[80vh] flex items-center overflow-hidden pt-20">
+    <section className="relative h-[80vh] flex items-center overflow-hidden pt-20 bg-[#f8fafc]">
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 0.1, scale: 1 }}
           transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
-          className="absolute -left-1/4 top-0 h-[600px] w-[600px] rounded-full bg-gradient-radial from-primary-500/40 to-transparent blur-3xl"
+          className="absolute -left-1/4 top-0 h-[600px] w-[600px] rounded-full bg-gradient-radial from-primary-600/30 to-transparent blur-3xl"
         />
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 0.1, scale: 1 }}
           transition={{ duration: 2, delay: 1, repeat: Infinity, repeatType: "reverse" }}
-          className="absolute -right-1/4 bottom-0 h-[500px] w-[500px] rounded-full bg-gradient-radial from-primary-400/40 to-transparent blur-3xl"
+          className="absolute -right-1/4 bottom-0 h-[500px] w-[500px] rounded-full bg-gradient-radial from-primary-400/30 to-transparent blur-3xl"
         />
       </div>
 
@@ -35,28 +35,28 @@ export default function Hero() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center rounded-full bg-gradient-to-r from-primary-50 to-primary-100 px-4 py-2 text-sm font-medium text-primary-600 shadow-inner"
+              className="flex items-center space-x-2 text-sm font-semibold text-primary-600"
             >
-              <motion.span
-                animate={{ rotate: [0, 360] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                className="mr-2"
-              >
-                ✨
-              </motion.span>
-              Powered by GPT-4 Technology
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              <span className="bg-gradient-to-r from-primary-600 to-primary-500 bg-clip-text text-transparent">
+                AI-POWERED COLD CALLING
+              </span>
             </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="mt-6 font-display text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl"
+              className="mt-6 font-display text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl leading-[1.15]"
             >
-              Your AI Sales Agent That Never{' '}
+              10x Your Sales Pipeline{' '}
               <span className="relative">
-                <span className="relative inline-block bg-gradient-to-r from-primary-600 via-primary-500 to-primary-600 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
-                  Sleeps
+                <span className="relative inline-block bg-gradient-to-r from-primary-600 via-primary-500 to-primary-600 bg-clip-text text-transparent">
+                  While You Sleep
                 </span>
               </span>
             </motion.h1>
@@ -65,10 +65,10 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="mt-4 text-lg leading-relaxed text-gray-600"
+              className="mt-6 text-lg leading-relaxed text-gray-600"
             >
-              Let our AI handle your cold calls while you focus on closing deals. 
-              Smarter conversations, better conversion rates, zero coffee breaks.
+              Deploy AI agents that handle thousands of personalized cold calls 24/7. 
+              Get qualified leads while you sleep. No scripts, no burnout, just results.
             </motion.p>
 
             <motion.div
@@ -112,51 +112,16 @@ export default function Hero() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative lg:mt-0 flex items-center justify-center"
+            initial={{ opacity: 0, scale: 0.9, rotateY: -20 }}
+            animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="relative z-10 bg-gradient-to-b from-[#f8fafc] to-[#f8fafc] rounded-3xl p-4"
           >
-            <div className="relative w-full max-w-[500px] aspect-square">
-              <div className="absolute inset-0 -z-10">
-                <div className="absolute inset-0 bg-gradient-to-tr from-primary-100/30 via-primary-200/30 to-primary-100/30 rounded-full blur-2xl transform scale-110" />
-                <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-white/20 to-transparent rounded-full backdrop-blur-sm" />
-              </div>
-              
-              <motion.div
-                animate={{ 
-                  y: ['-5%', '5%'],
-                  rotate: ['-5deg', '5deg']
-                }}
-                transition={{ 
-                  duration: 4,
-                  repeat: Infinity,
-                  repeatType: "reverse",
-                  ease: "easeInOut"
-                }}
-                className="absolute inset-0 z-20"
-              >
-                <div className="absolute top-0 left-1/4 w-12 h-12 bg-primary-100 rounded-lg blur opacity-60" />
-                <div className="absolute bottom-1/4 right-0 w-16 h-16 bg-primary-200 rounded-full blur-sm opacity-40" />
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9, rotateY: -20 }}
-                animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-                transition={{ duration: 1, ease: "easeOut" }}
-                className="relative z-10 bg-gradient-to-b from-white/80 to-white/20 rounded-3xl p-4 backdrop-blur-sm shadow-[0_8px_32px_rgba(0,0,0,0.04)] border border-white/20"
-              >
-                <Lottie
-                  animationData={heroAnimation}
-                  loop={true}
-                  className="w-full h-full drop-shadow-2xl"
-                />
-              </motion.div>
-
-              <div className="absolute inset-0 -z-20">
-                <div className="absolute inset-0 bg-gradient-to-tr from-primary-400/10 via-primary-300/5 to-primary-200/10 rounded-full blur-3xl transform scale-150 animate-pulse" />
-              </div>
-            </div>
+            <Lottie
+              animationData={heroAnimation}
+              loop={true}
+              className="w-full h-full"
+            />
           </motion.div>
         </div>
       </div>
