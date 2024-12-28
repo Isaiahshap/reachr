@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { CheckIcon } from '@heroicons/react/24/solid'
 import { useState } from 'react'
+import { useDemoNotice } from '../contexts/DemoNoticeContext'
 
 const tiers = [
   {
@@ -60,7 +61,13 @@ const tiers = [
 ]
 
 export default function Pricing() {
+  const { showDemoNotice } = useDemoNotice()
   const [isAnnual, setIsAnnual] = useState(false)
+
+  const handleStartTrial = (e: React.MouseEvent) => {
+    e.preventDefault()
+    showDemoNotice()
+  }
 
   return (
     <section className="py-24 bg-white">
@@ -159,19 +166,12 @@ export default function Pricing() {
                 ))}
               </ul>
 
-              <Link
-                to={tier.cta === 'Contact Sales' ? '/contact' : '/signup'}
-                className={`w-full inline-flex justify-center items-center px-6 py-3 rounded-lg text-base font-semibold transition-all duration-200 ${
-                  tier.highlighted
-                    ? 'bg-primary-600 text-white hover:bg-primary-700 hover:shadow-lg hover:shadow-primary-500/25'
-                    : 'bg-gray-50 text-gray-900 hover:bg-gray-100'
-                }`}
+              <button
+                onClick={handleStartTrial}
+                className="mt-8 block w-full rounded-lg bg-primary-600 px-6 py-4 text-center text-base font-semibold text-white shadow-sm hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2"
               >
                 {tier.cta}
-                <svg className="ml-2 w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                </svg>
-              </Link>
+              </button>
             </motion.div>
           ))}
         </div>

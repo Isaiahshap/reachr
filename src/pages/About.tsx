@@ -110,8 +110,8 @@ export default function About() {
     <div className="flex min-h-screen flex-col overflow-x-hidden">
       <Header />
       <main className="flex-1 overflow-x-hidden">
-        {/* Hero Section - Mobile Optimization */}
-        <section className="relative min-h-[60vh] sm:min-h-[50vh] flex items-center overflow-hidden pt-16 sm:pt-24">
+        {/* Hero Section - Tablet Optimized */}
+        <section className="relative min-h-[50vh] md:min-h-[60vh] flex items-center overflow-hidden pt-16 md:pt-20 lg:pt-24">
           {/* Enhanced Background Effects */}
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-gradient-to-b from-gray-50/50 to-white" />
@@ -120,15 +120,15 @@ export default function About() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 0.15, scale: 1 }}
               transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
-              className="absolute -top-24 left-1/4 h-[500px] w-[500px] rounded-full bg-gradient-radial from-primary-600/30 to-transparent blur-3xl"
+              className="absolute -top-24 left-1/4 h-[400px] w-[400px] md:h-[500px] md:w-[500px] rounded-full bg-gradient-radial from-primary-600/30 to-transparent blur-3xl"
             />
           </div>
 
-          <div className="relative mx-auto max-w-5xl px-4 sm:px-6 py-6 sm:py-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-6 items-center">
+          <div className="relative mx-auto max-w-5xl px-4 sm:px-6 md:px-8 py-6 md:py-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
               <motion.div
                 style={{ opacity, scale }}
-                className="space-y-6 sm:space-y-4 text-center lg:text-left"
+                className="space-y-6 md:space-y-8 text-center md:text-left max-w-2xl md:max-w-none mx-auto"
               >
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -142,7 +142,7 @@ export default function About() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 }}
-                  className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold"
+                  className="text-3xl md:text-4xl lg:text-5xl font-bold"
                 >
                   Building the{' '}
                   <span className="bg-gradient-to-r from-primary-600 to-primary-500 bg-clip-text text-transparent">
@@ -154,19 +154,21 @@ export default function About() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
-                  className="text-base text-gray-600 leading-relaxed max-w-lg"
+                  className="text-base md:text-lg text-gray-600 leading-relaxed max-w-lg md:max-w-none mx-auto md:mx-0"
                 >
                   From a small team of dreamers to the leader in AI-powered sales automation. 
                   Join us in revolutionizing how businesses connect with their customers.
                 </motion.p>
               </motion.div>
 
-              <motion.div className="relative h-[300px] lg:h-[400px] overflow-hidden">
-                <div className="absolute inset-[-0px]">
+              <motion.div 
+                className="relative h-[250px] md:h-[350px] lg:h-[400px] overflow-hidden -mx-4 sm:mx-0"
+              >
+                <div className="absolute inset-0">
                   <Lottie 
                     animationData={callAnimation}
                     loop={true}
-                    className="w-full h-full scale-[1.1]"
+                    className="w-full h-full scale-[1.1] md:scale-[1.2]"
                   />
                 </div>
               </motion.div>
@@ -272,20 +274,20 @@ export default function About() {
           {/* Background */}
           <div className="absolute inset-0 bg-primary-600" />
           
-          {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-primary-700 to-primary-600" />
+          {/* Gradient Overlay - Enhanced for tablets */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary-700 via-primary-600 to-primary-500" />
           
-          {/* Dot Pattern */}
-          <div className="absolute inset-0 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px] opacity-10" />
+          {/* Dot Pattern - Adjusted for tablets */}
+          <div className="absolute inset-0 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)] opacity-10" />
           
-          <div className="relative mx-auto max-w-5xl px-4 sm:px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
-              <div className="max-w-2xl text-center lg:text-left">
+          <div className="relative mx-auto max-w-5xl px-4 sm:px-8 md:px-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+              <div className="max-w-2xl text-center md:text-left mx-auto md:mx-0">
                 <motion.span
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  className="inline-flex items-center rounded-full bg-primary-500/10 px-3 py-1 text-sm font-medium text-white ring-1 ring-inset ring-white/20 mb-8"
+                  className="inline-flex items-center rounded-full bg-primary-500/10 px-4 py-1.5 text-sm font-medium text-white ring-1 ring-inset ring-white/20 mb-8"
                 >
                   Limited Time Offer
                 </motion.span>
@@ -295,10 +297,10 @@ export default function About() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.1 }}
-                  className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-6"
+                  className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-6"
                 >
-                  Ready to Join Our 
-                  <span className="block">Journey?</span>
+                  Ready to Join Our{' '}
+                  <span className="md:block">Journey?</span>
                 </motion.h2>
 
                 <motion.p
@@ -306,62 +308,74 @@ export default function About() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 }}
-                  className="text-xl text-primary-50 mb-12"
+                  className="text-lg md:text-xl text-primary-50 mb-8 md:mb-12 max-w-lg md:max-w-none mx-auto md:mx-0"
                 >
                   Join thousands of sales teams who have already upgraded their cold calling
                   with AI-powered automation. Start your free trial today.
                 </motion.p>
 
-                <motion.div className="flex flex-col w-full sm:flex-row gap-4 justify-center lg:justify-start">
+                <motion.div 
+                  className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 }}
+                >
                   <button
                     onClick={showDemoNotice}
-                    className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-white px-6 sm:px-8 py-3 text-base font-semibold text-primary-600 shadow-sm hover:bg-primary-50 active:bg-primary-100 transition-all duration-200 group"
+                    className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-white px-6 sm:px-8 py-3.5 md:py-4 text-base md:text-lg font-semibold text-primary-600 shadow-md hover:bg-primary-50 active:bg-primary-100 transition-all duration-200 group"
                   >
                     <span className="flex items-center">
                       Start Free Trial
-                      <svg className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
+                      <svg className="ml-2 w-5 h-5 md:w-6 md:h-6 transition-transform group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
                         <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
                       </svg>
                     </span>
                   </button>
                   <button
                     onClick={showDemoNotice} 
-                    className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg border border-white/20 px-6 sm:px-8 py-3 text-base font-semibold text-white hover:bg-white/10 active:bg-white/20 transition-all duration-200"
+                    className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg border-2 border-white/20 px-6 sm:px-8 py-3.5 md:py-4 text-base md:text-lg font-semibold text-white hover:bg-white/10 active:bg-white/20 transition-all duration-200"
                   >
                     Schedule Demo
                   </button>
                 </motion.div>
 
-                <motion.div className="mt-6 sm:mt-12 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-8 text-primary-100">
+                <motion.div 
+                  className="mt-6 md:mt-8 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 sm:gap-8 text-primary-50"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.4 }}
+                >
                   <div className="flex items-center gap-2">
-                    <svg className="h-5 w-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                    <svg className="h-5 w-5 md:h-6 md:w-6 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
-                    <span className="text-sm whitespace-nowrap">14-day free trial</span>
+                    <span className="text-sm md:text-base whitespace-nowrap">14-day free trial</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <svg className="h-5 w-5 md:h-6 md:w-6" viewBox="0 0 20 20" fill="currentColor">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
-                    <span className="text-sm">No credit card required</span>
+                    <span className="text-sm md:text-base">No credit card required</span>
                   </div>
                 </motion.div>
               </div>
 
-              {/* Animation only visible on larger screens */}
-              <motion.div className="hidden lg:block">
+              {/* Animation visible on tablets and larger screens */}
+              <motion.div className="hidden md:block">
                 <Lottie 
                   animationData={heroAnimation} 
-                  className="w-full max-w-[500px] mx-auto"
+                  className="w-full max-w-[400px] md:max-w-[500px] mx-auto"
                   loop={true}
                 />
               </motion.div>
             </div>
           </div>
 
-          {/* Decorative Blur */}
+          {/* Enhanced Decorative Blur for tablets */}
           <div className="absolute right-0 top-1/2 -translate-y-1/2">
-            <div className="h-[400px] w-[400px] bg-gradient-radial from-primary-400/30 to-transparent blur-3xl" />
+            <div className="h-[300px] w-[300px] md:h-[400px] md:w-[400px] bg-gradient-radial from-primary-400/40 to-transparent blur-3xl" />
           </div>
         </section>
       </main>
