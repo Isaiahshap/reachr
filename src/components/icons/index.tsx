@@ -80,61 +80,8 @@ export const IconUsers: React.FC = () => {
   )
 }
 
-export const IconHubspot: React.FC = () => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-    >
-      <path d="M22.5 11.5h-4.8c-.3-1.3-1.4-2.2-2.7-2.2-.8 0-1.6.4-2.1 1-.6-.6-1.3-1-2.1-1-1.4 0-2.5 1-2.7 2.2H1.5c-.3 0-.5.2-.5.5s.2.5.5.5h6.6c.3 1.3 1.4 2.2 2.7 2.2.8 0 1.6-.4 2.1-1 .6.6 1.3 1 2.1 1 1.4 0 2.5-1 2.7-2.2h4.8c.3 0 .5-.2.5-.5s-.2-.5-.5-.5z" />
-    </svg>
-  )
-}
 
-export const IconPipedrive: React.FC = () => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-    >
-      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-2-13v10l6-5-6-5z" />
-    </svg>
-  )
-}
 
-export const IconSalesforce: React.FC = () => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-    >
-      <path d="M15.5 9.5c-.7 0-1.4.2-2 .5-.3-1.4-1.6-2.5-3.1-2.5-.9 0-1.7.4-2.3 1-.6-.6-1.4-1-2.3-1-1.8 0-3.2 1.4-3.2 3.2 0 .5.1 1 .3 1.4-.2.4-.3.9-.3 1.4 0 1.8 1.4 3.2 3.2 3.2.7 0 1.4-.2 2-.5.3 1.4 1.6 2.5 3.1 2.5.9 0 1.7-.4 2.3-1 .6.6 1.4 1 2.3 1 1.8 0 3.2-1.4 3.2-3.2 0-.5-.1-1-.3-1.4.2-.4.3-.9.3-1.4-.1-1.8-1.5-3.2-3.2-3.2z" />
-    </svg>
-  )
-}
-
-export const IconZoho: React.FC = () => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-    >
-      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-2-5l5-5-5-5v10z" />
-    </svg>
-  )
-}
 
 export const IconClose: React.FC = () => {
   return (

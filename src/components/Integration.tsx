@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { useDemoNotice } from '../contexts/DemoNoticeContext'
 
 const integrations = [
   {
@@ -25,6 +26,8 @@ const integrations = [
 ]
 
 export default function Integration() {
+  const { showDemoNotice } = useDemoNotice()
+
   return (
     <section className="relative py-24 overflow-hidden bg-gradient-to-b from-white to-gray-50">
       <div className="absolute inset-0">
@@ -42,15 +45,15 @@ export default function Integration() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-4xl font-bold text-gray-900 mb-4"
+            className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent mb-4"
           >
-            Integrate with Your Favorite CRM
+            Use Reachr with Your Favorite CRM
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-lg text-gray-600 max-w-2xl mx-auto"
+            className="text-lg md:text-xl font-medium bg-gradient-to-r from-primary-600 to-primary-500 bg-clip-text text-transparent max-w-2xl mx-auto"
           >
             Connect Reachr with your existing workflow in just a few clicks. 
             Our enterprise-grade integrations ensure seamless data flow.
@@ -99,15 +102,15 @@ export default function Integration() {
           transition={{ duration: 0.4, delay: 0.6 }}
           className="mt-16 text-center"
         >
-          <Link
-            to="/integrations"
+          <button
+            onClick={showDemoNotice}
             className="inline-flex items-center text-primary-600 font-semibold hover:text-primary-700 transition-colors"
           >
             View all integrations
             <svg className="ml-2 w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
             </svg>
-          </Link>
+          </button>
         </motion.div>
       </div>
     </section>

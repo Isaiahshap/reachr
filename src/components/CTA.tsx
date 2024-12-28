@@ -1,8 +1,12 @@
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
 import { IconArrowRight } from './icons'
+import { useDemoNotice } from '../contexts/DemoNoticeContext'
+import Lottie from 'lottie-react'
+import ctaAnimation from '../assets/cta.json'
 
 export default function CTA() {
+  const { showDemoNotice } = useDemoNotice()
+
   return (
     <section className="relative py-24 overflow-hidden">
       {/* Background */}
@@ -16,86 +20,103 @@ export default function CTA() {
       
       {/* Content */}
       <div className="relative mx-auto max-w-7xl px-6">
-        <div className="max-w-2xl">
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center rounded-full bg-primary-500/10 px-3 py-1 text-sm font-medium text-white ring-1 ring-inset ring-white/20 mb-8"
-          >
-            Limited Time Offer
-          </motion.span>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="max-w-2xl">
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center rounded-full bg-primary-500/10 px-3 py-1 text-sm font-medium text-white ring-1 ring-inset ring-white/20 mb-8"
+            >
+              Limited Time Offer
+            </motion.span>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-6"
-          >
-            Ready to Transform Your 
-            <span className="block">Sales Process?</span>
-          </motion.h2>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-6"
+            >
+              Ready to Transform Your 
+              <span className="block">Sales Process?</span>
+            </motion.h2>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-xl text-primary-50 mb-12"
-          >
-            Join thousands of sales teams who have already upgraded their cold calling
-            with AI-powered automation. Start your free trial today.
-          </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="text-xl text-primary-50 mb-12"
+            >
+              Join thousands of sales teams who have already upgraded their cold calling
+              with AI-powered automation. Start your free trial today.
+            </motion.p>
 
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="flex flex-col sm:flex-row gap-4"
+            >
+              <button
+                onClick={showDemoNotice}
+                className="inline-flex items-center justify-center rounded-lg bg-white px-8 py-4 text-base font-semibold text-primary-600 shadow-sm hover:bg-primary-50 transition-all duration-200 group"
+              >
+                Start Free Trial
+                <IconArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </button>
+              <button
+                onClick={showDemoNotice}
+                className="inline-flex items-center justify-center rounded-lg border border-white/20 px-8 py-4 text-base font-semibold text-white hover:bg-white/10 transition-all duration-200"
+              >
+                Schedule Demo
+              </button>
+            </motion.div>
+
+            {/* Trust Indicators */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              className="mt-12 flex items-center gap-8 text-primary-100"
+            >
+              <div className="flex items-center gap-2">
+                <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+                <span className="text-sm">14-day free trial</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+                <span className="text-sm">No credit card required</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+                <span className="text-sm">Cancel anytime</span>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Right column - Lottie animation */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4"
+            className="hidden lg:block"
           >
-            <Link
-              to="/signup"
-              className="inline-flex items-center justify-center rounded-lg bg-white px-8 py-4 text-base font-semibold text-primary-600 shadow-sm hover:bg-primary-50 transition-all duration-200 group"
-            >
-              Start Free Trial
-              <IconArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </Link>
-            <Link
-              to="/demo"
-              className="inline-flex items-center justify-center rounded-lg border border-white/20 px-8 py-4 text-base font-semibold text-white hover:bg-white/10 transition-all duration-200"
-            >
-              Schedule Demo
-            </Link>
-          </motion.div>
-
-          {/* Trust Indicators */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
-            className="mt-12 flex items-center gap-8 text-primary-100"
-          >
-            <div className="flex items-center gap-2">
-              <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-              </svg>
-              <span className="text-sm">14-day free trial</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-              </svg>
-              <span className="text-sm">No credit card required</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-              </svg>
-              <span className="text-sm">Cancel anytime</span>
-            </div>
+            <Lottie 
+              animationData={ctaAnimation} 
+              className="w-full max-w-[500px] mx-auto"
+              loop={true}
+            />
           </motion.div>
         </div>
       </div>

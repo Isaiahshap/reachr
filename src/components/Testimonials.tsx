@@ -1,6 +1,7 @@
 // src/components/Testimonials.tsx
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { useDemoNotice } from '../contexts/DemoNoticeContext'
 
 const testimonials = [
   {
@@ -21,7 +22,7 @@ const testimonials = [
     image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=256&h=256&fit=crop',
     company: 'ScaleAI',
     companyColor: 'bg-purple-500',
-    quote: 'The ROI with Reachr has been incredible. What used to take our SDR team a month now happens in days, with better qualification and follow-up rates.',
+    quote: 'The ROI with Reachr has been incredible. What used to take our SDR team well over a month now happens in days (or even hours), with better qualification and follow-up rates.',
     stats: {
       value: '82%',
       label: 'reduction in CAC'
@@ -42,6 +43,8 @@ const testimonials = [
 ]
 
 export default function Testimonials() {
+  const { showDemoNotice } = useDemoNotice()
+
   return (
     <section className="py-24 bg-white">
       <div className="mx-auto max-w-7xl px-6">
@@ -50,16 +53,16 @@ export default function Testimonials() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl font-bold text-gray-900 mb-4"
+            className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent mb-4"
           >
-            Loved by Sales Teams Everywhere
+            Sales Teams Love Reachr 
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-lg text-gray-600 max-w-2xl mx-auto"
+            className="text-lg md:text-xl font-medium bg-gradient-to-r from-primary-600 to-primary-500 bg-clip-text text-transparent max-w-2xl mx-auto"
           >
             Join hundreds of high-growth companies scaling their sales with AI
           </motion.p>
@@ -115,15 +118,15 @@ export default function Testimonials() {
           transition={{ delay: 0.4 }}
           className="mt-16 text-center"
         >
-          <Link
-            to="/case-studies"
+          <button
+            onClick={showDemoNotice}
             className="inline-flex items-center text-primary-600 font-semibold hover:text-primary-700"
           >
             Read more case studies
             <svg className="ml-2 w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
             </svg>
-          </Link>
+          </button>
         </motion.div>
       </div>
     </section>
