@@ -1,56 +1,108 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { IconArrowRight } from '../components/icons'
+import { IconArrowRight } from './icons'
 
 export default function CTA() {
   return (
-    <section className="relative py-20 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-primary-700" />
-      <div className="absolute inset-0 bg-grid-white/[0.2] bg-[length:16px_16px]" />
+    <section className="relative py-24 overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-primary-600" />
       
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary-700 to-primary-600" />
+      
+      {/* Dot Pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px] opacity-10" />
+      
+      {/* Content */}
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="max-w-2xl">
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center rounded-full bg-primary-500/10 px-3 py-1 text-sm font-medium text-white ring-1 ring-inset ring-white/20 mb-8"
+          >
+            Limited Time Offer
+          </motion.span>
+
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl font-bold tracking-tight text-white sm:text-4xl"
+            transition={{ delay: 0.1 }}
+            className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-6"
           >
-            Ready to Transform Your Sales Process?
+            Ready to Transform Your 
+            <span className="block">Sales Process?</span>
           </motion.h2>
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="mt-6 text-lg text-primary-50"
+            transition={{ delay: 0.2 }}
+            className="text-xl text-primary-50 mb-12"
           >
             Join thousands of sales teams who have already upgraded their cold calling
-            with AI-powered automation.
+            with AI-powered automation. Start your free trial today.
           </motion.p>
-          
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="mt-8 flex flex-col sm:flex-row gap-4"
+            transition={{ delay: 0.3 }}
+            className="flex flex-col sm:flex-row gap-4"
           >
             <Link
               to="/signup"
-              className="inline-flex items-center justify-center rounded-lg bg-white px-8 py-4 text-base font-semibold text-primary-600 shadow-sm hover:bg-primary-50 transition-all duration-200"
+              className="inline-flex items-center justify-center rounded-lg bg-white px-8 py-4 text-base font-semibold text-primary-600 shadow-sm hover:bg-primary-50 transition-all duration-200 group"
             >
               Start Free Trial
-              <IconArrowRight className="ml-2 h-5 w-5" />
+              <IconArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Link>
             <Link
               to="/demo"
-              className="inline-flex items-center justify-center rounded-lg border-2 border-white/20 px-8 py-4 text-base font-semibold text-white hover:bg-white/10 transition-all duration-200"
+              className="inline-flex items-center justify-center rounded-lg border border-white/20 px-8 py-4 text-base font-semibold text-white hover:bg-white/10 transition-all duration-200"
             >
               Schedule Demo
             </Link>
           </motion.div>
+
+          {/* Trust Indicators */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+            className="mt-12 flex items-center gap-8 text-primary-100"
+          >
+            <div className="flex items-center gap-2">
+              <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+              </svg>
+              <span className="text-sm">14-day free trial</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+              </svg>
+              <span className="text-sm">No credit card required</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+              </svg>
+              <span className="text-sm">Cancel anytime</span>
+            </div>
+          </motion.div>
         </div>
+      </div>
+
+      {/* Decorative Blur */}
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2">
+        <div className="h-[400px] w-[400px] bg-gradient-radial from-primary-400/30 to-transparent blur-3xl" />
       </div>
     </section>
   )

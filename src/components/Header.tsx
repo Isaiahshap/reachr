@@ -15,11 +15,8 @@ export default function Header() {
   }, [])
 
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ type: "spring", stiffness: 100, damping: 20 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
         scrolled 
           ? 'bg-white/80 backdrop-blur-sm shadow-lg shadow-gray-100/20' 
           : 'bg-transparent'
@@ -27,19 +24,15 @@ export default function Header() {
     >
       <div className="mx-auto max-w-7xl px-6 py-4">
         <div className="flex items-center justify-between">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-          >
+          <div>
             <Link 
               to="/" 
-              className="text-xl font-display font-bold text-gray-900 hover:text-primary-600 transition-colors"
+              className="text-xl font-display font-bold text-gray-900 hover:text-gray-900 transition-colors flex items-center"
             >
               REACHR
               <span className="text-primary-600 text-xl">.</span>
             </Link>
-          </motion.div>
+          </div>
 
           <nav className="hidden md:flex items-center space-x-8">
             {['Home', 'Pricing', 'About', 'FAQ'].map((item) => (
@@ -53,12 +46,7 @@ export default function Header() {
             ))}
           </nav>
 
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="flex items-center space-x-4"
-          >
+          <div className="flex items-center space-x-4">
             <Link
               to="/login"
               className="text-sm font-medium text-gray-600 hover:text-primary-600 transition-colors"
@@ -67,13 +55,13 @@ export default function Header() {
             </Link>
             <Link
               to="/signup"
-              className="inline-flex h-10 items-center justify-center rounded-lg bg-primary-600 px-6 text-sm font-medium text-white transition-all duration-300 hover:bg-primary-700 hover:scale-105 hover:shadow-lg hover:shadow-primary-500/25"
+              className="inline-flex h-10 items-center justify-center rounded-lg bg-primary-600 px-6 text-sm font-medium text-white transition-all duration-200 hover:bg-primary-700 hover:shadow-lg hover:shadow-primary-500/25"
             >
               Get Started
             </Link>
-          </motion.div>
+          </div>
         </div>
       </div>
-    </motion.header>
+    </header>
   )
 }
