@@ -1,6 +1,5 @@
 // src/components/Hero.tsx
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
 import Lottie from 'lottie-react'
 import heroAnimation from '../assets/hero.json'
 import { useDemoNotice } from '../contexts/DemoNoticeContext'

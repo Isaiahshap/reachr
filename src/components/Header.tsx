@@ -1,7 +1,6 @@
 // src/components/Header.tsx
-import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { useDemoNotice } from '../contexts/DemoNoticeContext'
 import { Bars3Icon } from '@heroicons/react/24/outline'
 import MobileMenu from './MobileMenu'

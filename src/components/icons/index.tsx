@@ -1,8 +1,13 @@
 import React from 'react'
 
-export const IconChart: React.FC = () => {
+interface IconProps {
+  className?: string;
+}
+
+export const IconChart: React.FC<IconProps> = ({ className }) => {
   return (
     <svg
+      className={className}
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
@@ -20,9 +25,10 @@ export const IconChart: React.FC = () => {
   )
 }
 
-export const IconGlobe: React.FC = () => {
+export const IconGlobe: React.FC<IconProps> = ({ className }) => {
   return (
     <svg
+      className={className}
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
@@ -40,9 +46,10 @@ export const IconGlobe: React.FC = () => {
   )
 }
 
-export const IconSpeed: React.FC = () => {
+export const IconSpeed: React.FC<IconProps> = ({ className }) => {
   return (
     <svg
+      className={className}
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
@@ -59,9 +66,10 @@ export const IconSpeed: React.FC = () => {
   )
 }
 
-export const IconUsers: React.FC = () => {
+export const IconUsers: React.FC<IconProps> = ({ className }) => {
   return (
     <svg
+      className={className}
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
@@ -80,12 +88,10 @@ export const IconUsers: React.FC = () => {
   )
 }
 
-
-
-
-export const IconClose: React.FC = () => {
+export const IconClose: React.FC<IconProps> = ({ className }) => {
   return (
     <svg
+      className={className}
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
@@ -102,9 +108,10 @@ export const IconClose: React.FC = () => {
   )
 }
 
-export const IconMenu: React.FC = () => {
+export const IconMenu: React.FC<IconProps> = ({ className }) => {
   return (
     <svg
+      className={className}
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
@@ -122,9 +129,10 @@ export const IconMenu: React.FC = () => {
   )
 }
 
-export const IconArrowRight: React.FC = () => {
+export const IconArrowRight: React.FC<IconProps> = ({ className }) => {
   return (
     <svg
+      className={className}
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"

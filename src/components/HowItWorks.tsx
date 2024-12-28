@@ -1,7 +1,6 @@
 // src/components/HowItWorks.tsx
-import { motion, useScroll } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { useRef } from 'react'
-import { Link } from 'react-router-dom'
 import Lottie from 'lottie-react'
 import dataAnimation from '../assets/data.json'
 import callAnimation from '../assets/call.json'
